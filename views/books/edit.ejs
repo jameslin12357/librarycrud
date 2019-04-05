@@ -1,0 +1,52 @@
+<% include ../partials/header %>
+
+<div class="container ptb-125">
+    <div class="row">
+        <div class="col-lg-6 offset-lg-3">
+            <h3 class="login-heading mb-4 text-center">Edit book</h3>
+            <form action="/books/<%= results[0].id %>?_method=PUT" method="post">
+                <% if (errors.length > 0) { %>
+                <% for(var i = 0; i < errors.length; i++) { %>
+                <div class="alert alert-danger mb-15" role="alert">
+                    <%= errors[i].msg %>
+                </div>
+                <% } %>
+                <% } %>
+                    <div class="form-label-group">
+                        <input type="text" id="inputUsername" class="form-control" placeholder="Title" name="title"value="<%if (inputs.length > 0) { %><%= inputs[0].title %><% }else{ %><%= results[0].title %><% } %>" required autofocus>
+                        <label for="inputUsername">Title</label>
+                    </div>
+                    <div class="form-label-group">
+                        <input type="text" id="inputUsername" class="form-control" placeholder="Description" name="description" value="<%if (inputs.length > 0) { %><%= inputs[0].description %><% }else{ %><%= results[0].description %><% } %>" required>
+                        <label for="inputUsername">Description</label>
+                    </div>
+                    <div class="form-label-group">
+                        <input type="text" id="inputUsername" class="form-control" placeholder="Isbn" name="isbn" value="<%if (inputs.length > 0) { %><%= inputs[0].isbn %><% }else{ %><%= results[0].isbn %><% } %>" required>
+                        <label for="inputUsername">Isbn</label>
+                    </div>
+                    <div class="form-label-group">
+                        <input type="text" id="inputUsername" class="form-control" placeholder="Length" name="length"value="<%if (inputs.length > 0) { %><%= inputs[0].length %><% }else{ %><%= results[0].length %><% } %>" required>
+                        <label for="inputUsername">Length</label>
+                    </div>
+                    <div class="form-label-group">
+                        <input type="text" id="inputUsername" class="form-control" placeholder="Author Id" name="author_id" value="<%if (inputs.length > 0) { %><%= inputs[0].author_id %><% }else{ %><%= results[0].author_id %><% } %>" required>
+                        <label for="inputUsername">Author Id</label>
+                    </div>
+                    <div class="form-label-group">
+                        <input type="text" id="inputUsername" class="form-control" placeholder="Category Id" name="category_id" value="<%if (inputs.length > 0) { %><%= inputs[0].category_id %><% }else{ %><%= results[0].category_id %><% } %>" required>
+                        <label for="inputUsername">Category Id</label>
+                    </div>
+                    <div class="form-label-group">
+                        <input type="text" id="inputUsername" class="form-control" placeholder="Publisher Id" name="publisher_id" value="<%if (inputs.length > 0) { %><%= inputs[0].publisher_id %><% }else{ %><%= results[0].publisher_id %><% } %>" required>
+                        <label for="inputUsername">Publisher Id</label>
+                    </div>
+
+
+
+                    <button class="btn btn-lg btn-primary btn-block btn-login text-uppercase font-weight-bold mb-2" type="submit">Submit</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<% include ../partials/footer %>

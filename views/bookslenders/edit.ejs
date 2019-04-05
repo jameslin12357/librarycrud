@@ -1,0 +1,45 @@
+<% include ../partials/header %>
+
+<div class="container ptb-125">
+    <div class="row">
+        <div class="col-lg-6 offset-lg-3">
+            <h3 class="login-heading mb-4 text-center">Edit booklender</h3>
+            <form action="/bookslenders/<%= results[0].id %>?_method=PUT" method="post">
+                <% if (errors.length > 0) { %>
+                <% for(var i = 0; i < errors.length; i++) { %>
+                <div class="alert alert-danger mb-15" role="alert">
+                    <%= errors[i].msg %>
+                </div>
+                <% } %>
+                <% } %>
+                    <div class="form-label-group">
+                        <input type="text" id="inputUsername" class="form-control" placeholder="Date Returned" name="date_returned"value="<%if (inputs.length > 0) { %><%= inputs[0].date_returned %><% }else{ %><%= results[0].date_returned %><% } %>"required autofocus>
+                        <label for="inputUsername">Date Returned</label>
+                    </div>
+                    <div class="form-label-group">
+                        <input type="text" id="inputUsername" class="form-control" placeholder="Due Date" name="due_date" value="<%if (inputs.length > 0) { %><%= inputs[0].due_date %><% }else{ %><%= results[0].due_date %><% } %>"required>
+                        <label for="inputUsername">Due Date</label>
+                    </div>
+                    <div class="form-label-group">
+                        <input type="text" id="inputUsername" class="form-control" placeholder="Fine" name="fine" value="<%if (inputs.length > 0) { %><%= inputs[0].fine %><% }else{ %><%= results[0].fine %><% } %>"required>
+                        <label for="inputUsername">Fine</label>
+                    </div>
+                    <div class="form-label-group">
+                        <input type="text" id="inputUsername" class="form-control" placeholder="Book Id" name="book_id"value="<%if (inputs.length > 0) { %><%= inputs[0].book_id %><% }else{ %><%= results[0].book_id %><% } %>"required>
+                        <label for="inputUsername">Book Id</label>
+                    </div>
+                    <div class="form-label-group">
+                        <input type="text" id="inputUsername" class="form-control" placeholder="Lender Id" name="lender_id" value="<%if (inputs.length > 0) { %><%= inputs[0].lender_id %><% }else{ %><%= results[0].lender_id %><% } %>"required>
+                        <label for="inputUsername">Lender Id</label>
+                    </div>
+
+
+
+
+                    <button class="btn btn-lg btn-primary btn-block btn-login text-uppercase font-weight-bold mb-2" type="submit">Submit</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<% include ../partials/footer %>
